@@ -3,7 +3,7 @@ import streamlit as st
 #import numpy as np
 from pycaret.classification import load_model, predict_model
 
-st.set_page_config(page_title="Modelo de Predicción del voto para Gobernatura para la coalición PAN-PRI-NA")
+st.set_page_config(page_title="Modelo de Predicción del voto para Gobernatura para la Coalición PAN-PRI-NA")
 
 @st.cache(allow_output_mutation=True)
 def get_model():
@@ -22,7 +22,7 @@ form = st.form("Perfil Ciudadano")
 edad= form.number_input('edad', min_value = 18 , max_value = 100, value=50 , format = '%.2f', step = 1)
 califica_presidente= form.number_input('califica_presidente', min_value = 0 , max_value = 10, value=5 , format = '%.2f', step = 1)
 califica_gobernador= form.number_input('califica_gobernador', min_value = 0 , max_value = 10, value=5 , format = '%.2f', step = 1)
-distance_km= form.number_input('distance_km', min_value = 0 , max_value = 500, value=50 , format = '%.2f', step = 0.1)
+distance_km= form.number_input('distance_km', min_value = 0.0 , max_value = 500.0, value=50.0 , format = '%.2f', step = 0.1)
 Nse_list = ['A/B', 'C+', 'C', 'C-', 'D+','D', 'E', 'N/D']
 NSE = form.selectbox('NSE', Nse_list)
 df_list = ['1', '2', '3', '4', '5', '6']
