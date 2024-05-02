@@ -30,6 +30,9 @@ DF = form.selectbox('DF', df_list)
 predict_button = form.form_submit_button('Predict')
 input_dict = {'edad': edad, 'califica_presidente': califica_presidente, 'califica_gobernador': califica_gobernador,'distance_km':distance_km, 'NSE': NSE, 'DF': DF}
 input_df = pd.DataFrame([input_dict])
-if predict_button: 
+if predict_button:
     out = predict(model, input_df)
-    st.success(f'La prediccion del predio es {out}.')
+    if out == 1:
+        st.success('La predicción del voto es a favor de la alianza PAN-PRI-NA.')
+    else:
+        st.error('La predicción del voto es en contra de la alianza PAN-PRI-NA.')
